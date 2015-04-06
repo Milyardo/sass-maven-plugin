@@ -9,6 +9,35 @@
 
   <name>SASS Maven Plugin</name>
   <description>Maven plugin to compile SASS into CSS</description>
+  <url>https://github.com/learningobjectsinc/sass-maven-plugin</url>
+  <inceptionYear>2015</inceptionYear>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+    </license>
+  </licenses>
+  <organization>
+    <name>Learning Objects</name>
+    <url>http://www.learningobjects.com/</url>
+  </organization>
+  <scm>
+    <connection>scm:git:git://github.com/learningobjectsinc/sass-maven-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:learningobjectsinc/sass-maven-plugin.git</developerConnection>
+    <url>https://github.com/learningobjectsinc/sass-maven-plugin</url>
+  </scm>
+  <issueManagement>
+    <url>https://github.com/learningobjectsinc/sass-maven-plugin/issues</url>
+    <system>GitHub</system>
+  </issueManagement>
+  <developers>
+    <developer>
+      <name>Ben Zoller</name>
+      <organizationUrl>http://www.learningobjects.com/</organizationUrl>
+    </developer>
+  </developers>
+  <prerequisites>
+  </prerequisites>
 
   <dependencies>
     <dependency>
@@ -53,6 +82,21 @@
       </plugin>
     </plugins>
   </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.2</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>2.5</version>
+      </plugin>
+    </plugins>
+  </reporting>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
