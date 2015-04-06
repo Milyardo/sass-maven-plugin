@@ -1,4 +1,7 @@
 # sass-maven-plugin
+
+[![Build Status](https://travis-ci.org/learningobjectsinc/sass-maven-plugin.svg?branch=master)](https://travis-ci.org/learningobjectsinc/sass-maven-plugin)
+
 Maven plugin to compile SASS into CSS
 
 This plugin scans for subdirectories of `sassSourceDirectory` called `sass` containing `.scss`
