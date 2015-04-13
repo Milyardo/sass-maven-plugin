@@ -34,21 +34,37 @@ import java.util.Map;
  * For example, using the default parameters, if there is a SASS input file at {@code /src/main/resources/com/mycompany/sass/styles.scss},
  * then an associated CSS output file will be created at {@code /target/classes/com/mycompany/css/styles.css}.
  *
+ * @since 1.0
  * @author Ben Zoller
  */
 @Mojo(name = "compile", defaultPhase = LifecyclePhase.PROCESS_RESOURCES)
 public class CompileSassMojo extends AbstractMojo {
     private static final SassFilenameFilter sassFilenameFilter = new SassFilenameFilter();
 
+    /**
+     * Source directory containing one or more {@code sass} sub-directories, which contain one or more {@code .scss} files.
+     * @since 1.0
+     */
     @Parameter(defaultValue = "${basedir}/src/main/resources")
     private String sassSourceDirectory;
 
+    /**
+     * Target directory where CSS files will be generated under according to the relative path of the source SASS files.
+     * @since 1.0
+     */
     @Parameter(defaultValue = "${project.build.outputDirectory}")
     private String cssTargetDirectory;
 
+    /**
+     * Read-only parameter for the Maven project ${basedir} used for logging.
+     * @since 1.0
+     */
     @Parameter(defaultValue = "${basedir}", readonly = true)
     private String baseDirectory;
 
+    /**
+     * Compiles SASS into CSS.
+     */
     public void execute() throws MojoExecutionException, MojoFailureException {
         getLog().info("Compiling SASS into CSS");
         Map<Path, Path> sassToCssMap = buildSassToCssMap();
@@ -63,6 +79,9 @@ public class CompileSassMojo extends AbstractMojo {
         }
     }
 
+    /**
+     * Compiles the specified SASS file into a CSS file according to the specified target file path.
+     */
     private void compileSassToCss(Path sassFilePath, Path cssFilePath) throws IOException {
         logSassToCss(sassFilePath, cssFilePath);
 
@@ -92,6 +111,10 @@ public class CompileSassMojo extends AbstractMojo {
         return ctx;
     }
 
+    /**
+     * Builds a map of input SASS file path to generated output CSS file path
+     * by scanning the input directory for SASS files.
+     */
     private Map<Path, Path> buildSassToCssMap() {
         String[] includedDirectories = getSassDirectories();
         Map<Path, Path> sassToCssMap = new HashMap<>();
@@ -142,6 +165,9 @@ public class CompileSassMojo extends AbstractMojo {
         sassToCssMap.put(sassFilePath, cssFilePath);
     }
 
+    /**
+     * Filename filter which accepts {@code .scss} files which do not start with {@code _}.
+     */
     private static class SassFilenameFilter implements FilenameFilter {
         @Override
         public boolean accept(File dir, String name) {
