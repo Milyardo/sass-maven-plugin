@@ -10,3 +10,6 @@ files. For each SASS file, an associated CSS file is created in a relative `css`
 
 For example, using the default parameters, if there is a SASS input file at `/src/main/resources/com/mycompany/sass/styles.scss`,
 then an associated CSS output file will be created at `/target/classes/com/mycompany/css/styles.css`.
+
+# License
+* [MIT License](http://www.opensource.org/licenses/mit-license.php)
