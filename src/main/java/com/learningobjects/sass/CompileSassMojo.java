@@ -45,7 +45,7 @@ public class CompileSassMojo extends AbstractMojo {
      * Source directory containing one or more {@code sass} sub-directories, which contain one or more {@code .scss} files.
      * @since 1.0
      */
-    @Parameter(defaultValue = "${basedir}/src/main/resources")
+    @Parameter(defaultValue = "${basedir}/src/main/sass")
     private String sassSourceDirectory;
 
     /**
